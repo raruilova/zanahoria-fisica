@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 import {Link} from 'react-router-dom';
 import SideBar from './SideBar';
 
@@ -17,40 +16,48 @@ const Fuerza = () => {
                     </Link>
                     <div class="page-header pt-3">
                         <h2 class="tit">
-                            <b>Cálculos de fuerzas</b>
+                            <b>Potencia Mecánica</b>
                         </h2>
                     </div>
                     <p class="subtit1">
-                        <b>La clave para calcular la fuerza está en tener lista la fórmula y entenderla. 
-                                                La Fuerza (F) es igual a la masa (m) multiplicada por la aceleración (a).</b>
+                        <b>La Potencia mecánica se define como la cantidad de trabajo realizado por unidad de tiempo. 
+                                                                                                                                    Se utiliza la unidad de Watt en honor al escocés James Watt, 1736-1819, famoso por la construcción de una máquina de vapor.</b>
                     </p>
                     <hr/>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col">
                                 <form action="">
-                                    <div class="g-3">
-                                        <div class="form-group">
-                                            <label for="uname1" class="tit">
-                                                <b>Masa</b>
-                                            </label>
-                                            <input type="text" class="form-control form-control-md" name="" id="seltexto"/>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="uname1" class="tit">
+                                            <b>Masa</b>
+                                        </label>
+                                        <input type="text" class="form-control form-control-md" name="" id="seltexto" required=""/>
                                     </div>
-                                    <br/><br/>
-                                    <div class="">
-                                        <div class="form-group">
-                                            <label for="uname1" class="tit">
-                                                <b>Aceleración</b>
-                                            </label>
-                                            <input type="text" class="form-control form-control-md" name="" id="seltexto"/>
-                                        </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="uname1" class="tit">
+                                            <b>Aceleración</b>
+                                        </label>
+                                        <input type="text" class="form-control form-control-md" name="" id="seltexto" required=""/>
                                     </div>
-                                    <br/><br/>
-                                    <div class="">
-                                        <div class="form-group">
-                                            <input type="submit" class="btn btn-primary" required="" value="Calcular" id="boton"/>
-                                        </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="uname1" class="tit">
+                                            <b>Distancia</b>
+                                        </label>
+                                        <input type="text" class="form-control form-control-md" name="" id="seltexto" required=""/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="uname1" class="tit">
+                                            <b>Tiempo</b>
+                                        </label>
+                                        <input type="text" class="form-control form-control-md" name="" id="seltexto" required=""/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" required="" value="Calcular" id="boton"/>
                                     </div>
                                 </form>
                                 <br/>
@@ -60,13 +67,13 @@ const Fuerza = () => {
                                 <div class="card" id="tarjeta">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item" id="res">
-                                            <h2 class="subtit centro">
-                                                <b>F = m &#42; a</b>
+                                            <h2 class="subtit">
+                                                <b>P= &#40; m &#42; d &#42; a &#41; &#47; t</b>
                                             </h2>
                                         </li>
                                         <li class="list-group-item">
                                             <br/>
-                                            <h4 class="">
+                                            <h4>
                                                 <b>Res:</b>
                                             </h4>
                                             <br/>
@@ -82,9 +89,7 @@ const Fuerza = () => {
                 </main>
             </div>
         </div>
-
-
     )
 };
 
-export default Fuerza;
+export default Fuerza

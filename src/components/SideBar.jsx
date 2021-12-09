@@ -15,7 +15,7 @@ const SideBar = () => {
                             style={
                                 {backgroundColor: "black"}
                         }>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-house-fill" viewBox="0 0 16 16"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-house-fill" viewBox="0 0 16 16"
                                 style={
                                     {color: "orange"}
                             }>
@@ -45,10 +45,10 @@ const SideBar = () => {
                             </button>
                             <ul class="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Fuerza</a>
+                                    <a className="dropdown-item stil" href="#" id="mean">Frecuencia</a>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Potencia</a>
+                                    <a className="dropdown-item stil" href="#" id="mean">Longitud de onda</a>
                                 </li>
                             </ul>
                         </div>
@@ -59,10 +59,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                <Link className="dropdown-item stil" to="/fuerza" id="mean">Calculo de fuerzas</Link>
+                                    <Link className="dropdown-item stil" to="/fuerza" id="mean">Cálculos de fuerzas</Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="Potencia.html" id="mean">Potencia mecánica</a>
+                                    <Link className="dropdown-item stil" to="/potencia" id="mean">Potencia mecánica</Link>
                                 </li>
                             </ul>
                         </div>
@@ -87,10 +87,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Fuerza</a>
+                                    <a className="dropdown-item stil" href="#" id="mean">Calculo de frecuencia</a>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Potencia</a>
+                                    <a className="dropdown-item stil" href="#" id="mean">Diferencia de la altura</a>
                                 </li>
                             </ul>
                         </div>
@@ -101,10 +101,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Fuerza</a>
+                                    <a className="dropdown-item stil" href="#" id="mean">Movimiento Parabólico</a>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Potencia</a>
+                                    <a className="dropdown-item stil" href="#" id="mean">Caida libre</a>
                                 </li>
                             </ul>
                         </div>
