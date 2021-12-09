@@ -45,10 +45,10 @@ const SideBar = () => {
                             </button>
                             <ul class="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Frecuencia</a>
+                                    <Link className="dropdown-item stil" to="/frecuencia" id="mean">Frecuencia</Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Longitud de onda</a>
+                                    <Link className="dropdown-item stil" to="/longitudOnda" id="mean">Longitud de onda</Link>
                                 </li>
                             </ul>
                         </div>
@@ -73,10 +73,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Energia Potencial</a>
+                                    <Link className="dropdown-item stil" to="/energiaPotencial" id="mean">Energia Potencial</Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Energia Cinetica</a>
+                                <Link className="dropdown-item stil" to="/energiaCinetica" id="mean">Energia Cinetica</Link>
                                 </li>
                             </ul>
                         </div>
