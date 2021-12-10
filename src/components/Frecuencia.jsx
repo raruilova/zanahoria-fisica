@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import useGetFrecuency from '../hooks/useGetFrecuency';
 import SideBar from './SideBar';
 
 const Frecuencia = () => {
+    const [frecuncyForm, setFrecuencyForm] = useState({
+        medium: '',
+        frecuency: 2
+    });
+
+    const [resultFrecunecy, setResultFrecuency] = useState({});
+
+    const handleChange = (e) => {
+        setFrecuencyForm({
+            ...frecuncyForm,
+            [e.target.name]: e.target.value
+        });
+    } 
+
+    const {medium, frecuency} = frecuncyForm;
+    const result = useGetFrecuency(medium, frecuency);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+setResultFrecuency(result);
+    }
+
     return (
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -26,12 +49,12 @@ const Frecuencia = () => {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col">
-                                <form action="">
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
-                                        <label for="uname1" className="tit">
+                                        <label htmlFor="uname1" className="tit">
                                             <b>Medio</b>
                                         </label>
-                                        <select className="form-control" id="selec">
+                                        <select className="form-control" name="medium" onChange={handleChange} id="selec">
                                             <option value="hidrogeno">Hidrógeno</option>
                                             <option value="helio">Helio</option>
                                             <option value="aire20">Aire 20</option>
@@ -50,14 +73,16 @@ const Frecuencia = () => {
                                     </div>
                                     <br/>
                                     <div className="form-group">
-                                        <label for="uname1" className="tit">
+                                        <label htmlFor="uname1" className="tit">
                                             <b>Longitud de Onda</b>
                                         </label>
-                                        <input type="text" className="form-control form-control-md" name="" id="seltexto" required=""/>
+                                        <input type="number" className="form-control form-control-md" name="frecuency"
+                                        onChange={handleChange}
+                                        id="seltexto" required/>
                                     </div>
                                     <br/>
                                     <div className="form-group">
-                                        <input type="submit" className="btn btn-primary" required="" value="Calcular" id="boton"/>
+                                        <input type="submit" className="btn btn-primary" required value="Calcular" id="boton"/>
                                     </div>
                                 </form>
                             </div>
@@ -76,7 +101,7 @@ const Frecuencia = () => {
                                                 <b>Res:</b>
                                             </h4>
                                             <br/>
-                                            <h4 className="centro">sdccsc</h4>
+                                            <h4 className="centro">{resultFrecunecy.frecuencia}</h4>
                                             <br/>
                                         </li>
                                     </ul>
