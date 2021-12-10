@@ -31,10 +31,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                    <Link className="dropdown-item stil" to="/prueba" id="mean">Calculo de densidad</Link>
+                                    <Link className="dropdown-item stil" to="/densidad" id="mean">Calculo de densidad</Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Calculo de volumen</a>
+                                    <Link className="dropdown-item stil" to="/volumen" id="mean">Calculo de volumen</Link>
                                 </li>
                             </ul>
                         </div>
@@ -87,10 +87,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Calculo de frecuencia</a>
+                                    <Link className="dropdown-item stil" to="/calculoFrecuencia" id="mean">Calculo de frecuencia</Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Diferencia de la altura</a>
+                                    <Link className="dropdown-item stil" to="/altura" id="mean">Diferencia de la altura</Link>
                                 </li>
                             </ul>
                         </div>
@@ -101,10 +101,10 @@ const SideBar = () => {
                             </button>
                             <ul className="dropdown-menu" id="men">
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Movimiento Parabólico</a>
+                                    <Link className="dropdown-item stil" to="/movParabolico" id="mean">Movimiento Parabólico</Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item stil" href="#" id="mean">Caida libre</a>
+                                    <Link className="dropdown-item stil" to="/CaidaLibre" id="mean">Caida libre</Link>
                                 </li>
                             </ul>
                         </div>

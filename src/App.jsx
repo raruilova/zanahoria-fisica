@@ -10,7 +10,12 @@ import Frecuencia from './components/Frecuencia';
 import LongitudOnda from './components/LongitudOnda';
 import EnergiaPotencial from './components/EnergiaPotencial';
 import EnergiaCinetica from './components/EnergiaCinetica';
-
+import Densidad from './components/Densidad';
+import Volumen from './components/Volumen';
+import CalculoFrecuencia from './components/CalculoFrecuencia';
+import Altura from './components/Altura';
+import MovParabolico from './components/MovParabolico';
+import CaidaLibre from './components/CaidaLibre';
 
 const App = () => {
     return (
@@ -31,8 +36,20 @@ const App = () => {
                     element={<LongitudOnda/>}/>
                     <Route path="/energiaPotencial"
                     element={<EnergiaPotencial/>}/>
-                     <Route path="/energiaCinetica"
+                    <Route path="/energiaCinetica"
                     element={<EnergiaCinetica/>}/>
+                    <Route path="/densidad"
+                    element={<Densidad/>}/>
+                    <Route path="/volumen"
+                    element={<Volumen/>}/>
+                    <Route path="/calculoFrecuencia"
+                    element={<CalculoFrecuencia/>}/>
+                    <Route path="/altura"
+                    element={<Altura/>}/>
+                    <Route path="/movParabolico"
+                    element={<MovParabolico/>}/>
+                    <Route path="/CaidaLibre"
+                    element={<CaidaLibre/>}/>
                 </Routes>
             </Layout>
         </BrowserRouter>
