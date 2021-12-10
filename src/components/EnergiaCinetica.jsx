@@ -1,8 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import SideBar from './SideBar';
+import useGetKinetic from '../hooks/useGetKinetic';
 
 const EnergiaCinetica = () => {
+    const [kineticFomr, setKineticForm] = useState({
+        mass: 1,
+        velocity: 1,
+    });
+
+    const [resultkinetic, setResultKinetic] = useState({});
+
+    const handleChange = (e) => {
+        setKineticForm({
+            ...kineticFomr,
+            [e.target.name]: e.target.value,
+        });
+    }
+    const {mass, velocity} = kineticFomr;
+
+    const result = useGetKinetic(mass, velocity);
+
+    console.log(resultkinetic);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setResultKinetic(result[0]);
+    }
     return (
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -17,22 +41,22 @@ const EnergiaCinetica = () => {
                     <div className="page-header pt-3">
                     <h2 className="tit"> <b>Energía Cinética</b> </h2>
                 </div>
-                <p class="subtit1">
+                <p className="subtit1">
                     <b></b>
                 </p>
                     <hr/>
                     <div className="container-fluid">
                     <div className="row">
-                        <div class="col">
-                            <form action="">
+                        <div className="col">
+                            <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label for="uname1" className="tit"> <b>Masa</b> </label>
-                                    <input type="text" className="form-control form-control-md" name="" id="seltexto" required=""/>
+                                    <input type="text" className="form-control form-control-md" name="mass" onChange={handleChange} id="seltexto" required=""/>
                                 </div>
                                 <br/>
                                 <div className="form-group">
                                     <label for="uname1" className="tit"> <b>Velocidad</b> </label>
-                                    <input type="text" className="form-control form-control-md" name="" id="seltexto" required=""/>
+                                    <input type="text" className="form-control form-control-md" name="velocity" onChange={handleChange} id="seltexto" required=""/>
                                 </div>
                                 <br/>
                                 <div className="form-group">
@@ -51,7 +75,7 @@ const EnergiaCinetica = () => {
                                         <br/>
                                         <h4> <b>Res:</b> </h4>
                                         <br/>
-                                        <h4 className="centro">sdccsc</h4>
+                                        <h4 className="centro">{resultkinetic.energiaCinetica}</h4>
                                         <br/>
                                     </li>
                                 </ul>

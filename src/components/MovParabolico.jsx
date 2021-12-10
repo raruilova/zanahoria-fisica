@@ -1,9 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import useGetParabolic from '../hooks/useGetParabolic';
 import SideBar from './SideBar';
 
 const MovParabolico = ()=>{
+    const [parabolicFomr, setParabolicForm] = useState({
+        initial: 1,
+        aceleration: 1,
+        time: 1,
+    });
 
+    const [resultParabolic, setResultParabolic] = useState({});
+
+    const handleChange = (e) => {
+        setParabolicForm({
+            ...parabolicFomr,
+            [e.target.name]: e.target.value,
+        });
+    }
+    const {initial, aceleration, time} = parabolicFomr;
+
+    const result = useGetParabolic(initial, aceleration, time);
+
+    console.log(result);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setResultParabolic(result);
+    }
     return(
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -26,51 +50,51 @@ const MovParabolico = ()=>{
                     <hr/>
                     <div className="container-fluid">
                         <div className="row">
-                            <div class="col">
-                                <form action="">
+                            <div className="col">
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label for="uname1" className="tit">
                                             <b>Velocidad inicial</b>
                                         </label>
-                                        <input type="text" className="form-control form-control-md" name="initial" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="initial" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <label for="uname1" class="tit">
+                                    <div className="form-group">
+                                        <label for="uname1" className="tit">
                                             <b>Aceleración</b>
                                         </label>
-                                        <input type="text" class="form-control form-control-md" name="aceleration" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="aceleration" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <label for="uname1" class="tit">
+                                    <div className="form-group">
+                                        <label for="uname1" className="tit">
                                             <b>Tiempo</b>
                                         </label>
-                                        <input type="text" class="form-control form-control-md" name="time" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="time" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" required="" value="Calcular" id="boton"/>
+                                    <div className="form-group">
+                                        <input type="submit" className="btn btn-primary" required="" value="Calcular" id="boton"/>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col">
-                                <div class="card" id="tarjeta">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id="res">
-                                            <h2 class="subtit">
+                            <div className="col-md-1"></div>
+                            <div className="col">
+                                <div className="card" id="tarjeta">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item" id="res">
+                                            <h2 className="subtit">
                                                 <b>Vf= V&#8320; + a &#42; t
                                                 </b>
                                             </h2>
                                         </li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <br/>
                                             <h4>
                                                 <b>Res:</b>
                                             </h4>
                                             <br/>
-                                            <h4 class="centro">sdccsc</h4>
+                                            <h4 className="centro">sdccsc</h4>
                                             <br/>
                                         </li>
                                     </ul>

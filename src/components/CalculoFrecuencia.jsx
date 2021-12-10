@@ -1,7 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import SideBar from './SideBar';
+import useGetFreq from '../hooks/useGetFreq';
 const CalculoFrecuencia= () =>{
+    const [freqFomr, setFreqForm] = useState({
+        length:1,
+    });
+
+    const [resultFreq, setResultFreq] = useState({});
+
+    const handleChange = (e) => {
+        setFreqForm({
+            ...freqFomr,
+            [e.target.name]: e.target.value,
+        });
+    }
+    const {length} = freqFomr;
+
+    const result = useGetFreq(length);
+
+    console.log(result);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setResultFreq(result);
+    }
     return(
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -24,37 +47,37 @@ const CalculoFrecuencia= () =>{
                     <hr/>
                     <div className="container-fluid">
                         <div className="row">
-                            <div class="col">
-                                <form action="">
+                            <div className="col">
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label for="uname1" className="tit">
                                             <b>Longitud</b>
                                         </label>
-                                        <input type="text" className="form-control form-control-md" name="Length" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="Length" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" required="" value="Calcular" id="boton"/>
+                                    <div className="form-group">
+                                        <input type="submit" className="btn btn-primary" required="" value="Calcular" id="boton"/>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col">
-                                <div class="card" id="tarjeta">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id="res">
-                                            <h2 class="subtit">
+                            <div className="col-md-1"></div>
+                            <div className="col">
+                                <div className="card" id="tarjeta">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item" id="res">
+                                            <h2 className="subtit">
                                                 <b>ω= (g &#47; L)^½
                                                 </b>
                                             </h2>
                                         </li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <br/>
                                             <h4>
                                                 <b>Res:</b>
                                             </h4>
                                             <br/>
-                                            <h4 class="centro">sdccsc</h4>
+                                            <h4 className="centro">sdccsc</h4>
                                             <br/>
                                         </li>
                                     </ul>

@@ -1,8 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import SideBar from './SideBar';
+import useGetPotential from '../hooks/useGetPotential';
 
 const EnergiaPotencial = () => {
+    const [potentialFomr, setPotentialForm] = useState({
+        mass: 1,
+        velocity: 1,
+        height: 1,
+    });
+
+    const [resultpotential, setResultPotential] = useState({});
+
+    const handleChange = (e) => {
+        setPotentialForm({
+            ...potentialFomr,
+            [e.target.name]: e.target.value,
+        });
+    }
+    const {mass, velocity, height} = potentialFomr;
+
+    const result = useGetPotential(mass, velocity, height);
+
+    console.log(resultpotential);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setResultPotential(result[0]);
+    }
     return (
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -25,51 +50,51 @@ const EnergiaPotencial = () => {
                     <hr/>
                     <div className="container-fluid">
                         <div className="row">
-                            <div class="col">
-                                <form action="">
+                            <div className="col">
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label for="uname1" className="tit">
                                             <b>Masa</b>
                                         </label>
-                                        <input type="text" className="form-control form-control-md" name="" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="mass" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <label for="uname1" class="tit">
+                                    <div className="form-group">
+                                        <label for="uname1" className="tit">
                                             <b>Velocidad</b>
                                         </label>
-                                        <input type="text" class="form-control form-control-md" name="" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="velocity" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <label for="uname1" class="tit">
+                                    <div className="form-group">
+                                        <label for="uname1" className="tit">
                                             <b>Altura</b>
                                         </label>
-                                        <input type="text" class="form-control form-control-md" name="" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="height" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" required="" value="Calcular" id="boton"/>
+                                    <div className="form-group">
+                                        <input type="submit" className="btn btn-primary" required="" value="Calcular" id="boton"/>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col">
-                                <div class="card" id="tarjeta">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id="res">
-                                            <h2 class="subtit">
+                            <div className="col-md-1"></div>
+                            <div className="col">
+                                <div className="card" id="tarjeta">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item" id="res">
+                                            <h2 className="subtit">
                                                 <b>Ep= m &#42; v &#42; h
                                                 </b>
                                             </h2>
                                         </li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <br/>
                                             <h4>
                                                 <b>Res:</b>
                                             </h4>
                                             <br/>
-                                            <h4 class="centro">sdccsc</h4>
+                                            <h4 className="centro">{resultpotential.energiaPotencial}</h4>
                                             <br/>
                                         </li>
                                     </ul>

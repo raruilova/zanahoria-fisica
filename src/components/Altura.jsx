@@ -1,7 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import useGetHeight from '../hooks/useGetHeight';
 import SideBar from './SideBar';
 const Altura= () =>{
+    const [heightFomr, setHeightForm] = useState({
+        Length:1,
+        angle:1,
+    });
+
+    const [resultHeight, setResultHeight] = useState({});
+
+    const handleChange = (e) => {
+        setHeightForm({
+            ...heightFomr,
+            [e.target.name]: e.target.value,
+        });
+    }
+    const {Length, angle} = heightFomr;
+
+    const result = useGetHeight(Length, angle);
+
+    console.log(result);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setResultHeight(result);
+    }
     return(
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -24,44 +48,44 @@ const Altura= () =>{
                     <hr/>
                     <div className="container-fluid">
                         <div className="row">
-                            <div class="col">
-                                <form action="">
+                            <div className="col">
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label for="uname1" className="tit">
                                             <b>Longitud</b>
                                         </label>
-                                        <input type="text" className="form-control form-control-md" name="Length" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="Length" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
                                     <div className="form-group">
                                         <label for="uname1" className="tit">
                                             <b>Angulo</b>
                                         </label>
-                                        <input type="text" className="form-control form-control-md" name="angle" id="seltexto" required=""/>
+                                        <input type="text" className="form-control form-control-md" name="angle" onChange={handleChange} id="seltexto" required=""/>
                                     </div>
                                     <br/>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" required="" value="Calcular" id="boton"/>
+                                    <div className="form-group">
+                                        <input type="submit" className="btn btn-primary" required="" value="Calcular" id="boton"/>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col">
-                                <div class="card" id="tarjeta">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id="res">
-                                            <h2 class="subtit">
+                            <div className="col-md-1"></div>
+                            <div className="col">
+                                <div className="card" id="tarjeta">
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item" id="res">
+                                            <h2 className="subtit">
                                                 <b>ρ= L - L &#42; cos(Θ)
                                                 </b>
                                             </h2>
                                         </li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <br/>
                                             <h4>
                                                 <b>Res:</b>
                                             </h4>
                                             <br/>
-                                            <h4 class="centro">sdccsc</h4>
+                                            <h4 className="centro"></h4>
                                             <br/>
                                         </li>
                                     </ul>
