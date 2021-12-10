@@ -152,7 +152,7 @@ const Volumen = () => {
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item" id="res">
                       <h2 className="subtit">
-                        <b>ρ= P &#42; PM &#47; (R &#42; T)</b>
+                        <b>V2= (P1 &#42; v1 &#42; T2)  &#47; (P2 &#42; T1)</b>
                       </h2>
                     </li>
                     <li className="list-group-item">
